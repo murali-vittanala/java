@@ -3,8 +3,14 @@ package HelloWorld.test;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
+
+/**
+ * @author vmuralimohanarao
+ *
+ */
 
 public class FirstTest {
 	public static void main(String args[]) {
@@ -48,6 +54,21 @@ public class FirstTest {
 		List<String> list1 = (List<String>) Arrays.asList(values);
 		System.out.println(list1);
 		System.out.println("####################################");
+		
+		List<Car> cars = new ArrayList<>();
+
+		cars.add(new Car("Volvo V40" , "XYZ 201845", 5));
+		cars.add(new Car("Citroen C1", "ABC 164521", 4));
+		cars.add(new Car("Dodge Ram" , "KLM 845990", 2));
+
+		Comparator<Car> carBrandComparator = new Comparator<Car>() {
+		    @Override
+		    public int compare(Car car1, Car car2) {
+		        return car1.brand.compareTo(car2.brand);
+		    }
+		};
+
+		//Collections.sort(list, carBrandComparator);
 		
 	}
 }
